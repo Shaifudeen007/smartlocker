@@ -17,85 +17,248 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+    <div className="min-h-screen font-sans antialiased bg-[#080b1a] text-white selection:bg-cyan-300/30">
+      {/* Background gradient + glow */}
+      <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_10%,rgba(56,189,248,0.08),transparent),radial-gradient(40%_40%_at_10%_90%,rgba(147,51,234,0.18),transparent)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0b102b] via-[#14124d] to-[#1a0b2e] opacity-90" />
       </div>
 
-      <div className="relative text-center max-w-2xl mx-auto">
-        {/* Logo/Brand */}
-        <div className="mb-8 flex justify-center">
-          <div className="w-20 h-20 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-cyan-500/25">
-            <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-            </svg>
-          </div>
-        </div>
+      {/* Skip link for a11y */}
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-cyan-300 focus:text-black focus:px-3 focus:py-2 focus:rounded">Skip to content</a>
 
-        {/* Main Heading */}
-        <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
-          Smart<span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">Lockers</span>
-        </h1>
-        
-        {/* Subtitle */}
-        <p className="text-xl text-gray-300 mb-12 max-w-md mx-auto leading-relaxed">
-          Next-generation secure storage with intelligent access control and real-time monitoring
-        </p>
-        
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <button 
-            onClick={handleLogin}
-            className="group relative bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold py-4 px-12 rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25 min-w-[200px]"
-          >
-            <span className="relative z-10">User Login</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10"></div>
-          </button>
-          
-          <button 
-            onClick={handleAdminLogin}
-            className="group relative bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-400 hover:to-pink-500 text-white font-semibold py-4 px-12 rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 min-w-[200px]"
-          >
-            <span className="relative z-10">Admin Login</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm -z-10"></div>
-          </button>
-          
-          <button 
-            onClick={handleRegister}
-            className="group relative bg-transparent hover:bg-white/10 text-white border-2 border-white/30 hover:border-cyan-400 font-semibold py-4 px-12 rounded-2xl transition-all duration-300 ease-in-out transform hover:scale-105 backdrop-blur-sm min-w-[200px]"
-          >
-            <span className="relative z-10">Get Started</span>
-            <div className="absolute inset-0 bg-cyan-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-          </button>
+      {/* Sticky Nav */}
+      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-black/30 bg-black/20 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-500 shadow-lg shadow-cyan-500/20" aria-hidden />
+            <div className="leading-tight">
+              <p className="text-white font-bold tracking-wide">SmartLockers</p>
+              <p className="text-xs text-white/60">Secure Storage Solutions</p>
+            </div>
+          </div>
+          <nav aria-label="Primary" className="hidden md:flex items-center gap-7 text-sm">
+            <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#features">Features</a>
+            <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#security">Security</a>
+            <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#pricing">Pricing</a>
+            <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#contact">Contact</a>
+          </nav>
+          <div className="flex items-center gap-3">
+            <button onClick={handleLogin} className="inline-flex items-center gap-2 rounded-xl bg-cyan-400/95 text-black font-semibold px-4 py-2 shadow-[0_8px_24px_rgba(34,211,238,.35)] hover:translate-y-[-1px] hover:shadow-[0_10px_30px_rgba(34,211,238,.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
+              Get Started
+            </button>
+          </div>
         </div>
+      </header>
 
-        {/* Feature Highlights */}
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 text-white/80">
-          <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            <span className="text-sm font-medium">Military-grade Security</span>
+      <main id="main">
+        {/* Hero Section */}
+        <section aria-labelledby="hero-heading" className="relative overflow-hidden min-h-[calc(100vh-4rem)] flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 w-full">
+            <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <div className="text-center lg:text-left">
+                <div className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs text-white/80 mb-6">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  Trusted by businesses worldwide
+                </div>
+                <h1 id="hero-heading" className="mt-5 text-3xl sm:text-5xl/tight font-extrabold text-center lg:text-left">
+                  Revolutionize Storage with <span className="text-cyan-300/90 drop-shadow-[0_0_6px_rgba(34,211,238,.25)]">SmartLockers</span>
+                </h1>
+                <p className="mt-4 text-white/80 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+                  SmartLockers delivers intelligent access control, real-time monitoring, and seamless management—
+                  purpose‑built for <strong className="text-white">modern businesses</strong> and <strong className="text-white">enterprise facilities</strong>.
+                </p>
+                <div className="mt-6 flex flex-wrap items-center gap-3 justify-center lg:justify-start">
+                  <button onClick={handleRegister} className="inline-flex items-center gap-2 rounded-xl bg-cyan-400/95 text-black font-semibold px-5 py-3 shadow-[0_8px_24px_rgba(34,211,238,.35)] hover:translate-y-[-1px] hover:shadow-[0_10px_30px_rgba(34,211,238,.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
+                    Start Free Trial
+                  </button>
+                  <button onClick={handleLogin} className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 text-white px-5 py-3 hover:border-cyan-300/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
+                    Explore Features
+                  </button>
+                </div>
+                <div className="mt-6 flex items-center gap-6 justify-center lg:justify-start">
+                  <span className="text-white/60 text-sm">Available 24/7</span>
+                  <div className="flex items-center gap-2 text-emerald-400">
+                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span className="text-sm">Live Monitoring</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Hero demo panel */}
+              <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-7 backdrop-blur transition shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40 lg:ml-auto">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-white/70 text-sm">Live Dashboard</p>
+                    <p className="text-white font-semibold">Facility • Main Building</p>
+                  </div>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/40 bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-200">
+                    <span className="h-2 w-2 rounded-full bg-emerald-400 inline-block" aria-hidden></span>
+                    Real‑time
+                  </span>
+                </div>
+                <div className="mt-5 grid sm:grid-cols-2 gap-5">
+                  <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-7 backdrop-blur transition shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40">
+                    <h3 className="text-sm font-semibold text-white/90 text-center flex items-center justify-center gap-2">
+                      <svg className="h-4 w-4 text-cyan-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                      </svg>
+                      Locker Status
+                    </h3>
+                    <div className="mt-3 space-y-3">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-white/70">Available Lockers</span>
+                        <span className="font-semibold text-emerald-300">24</span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-white/70">In Use</span>
+                        <span className="font-semibold text-amber-300">12</span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-white/70">Maintenance</span>
+                        <span className="font-semibold text-rose-300">2</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-7 backdrop-blur transition shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40">
+                    <h3 className="text-sm font-semibold text-white/90 text-center flex items-center justify-center gap-2">
+                      <svg className="h-4 w-4 text-fuchsia-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Usage Analytics
+                    </h3>
+                    <div className="mt-3 space-y-3">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-white/70">Active Reservations</span>
+                        <span className="font-semibold text-white">8</span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-white/70">Avg. Usage Time</span>
+                        <span className="font-semibold text-white">3.2h</span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm mt-2">
+                        <span className="text-white/70">Peak Hours</span>
+                        <span className="font-semibold text-amber-300">14:00-16:00</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-5">
+                  <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-7 backdrop-blur transition shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                      <div>
+                        <h3 className="text-sm font-semibold text-white/90 flex items-center gap-2">
+                          <svg className="h-4 w-4 text-emerald-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          </svg>
+                          System Status
+                        </h3>
+                        <p className="mt-1 text-sm text-white/80 max-w-xl">
+                          All systems operational. Security monitoring active with 99.9% uptime. 
+                          <span className="text-emerald-300"> Ready for new reservations.</span>
+                        </p>
+                      </div>
+                      <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/40 bg-cyan-300/10 px-3 py-1 text-xs font-semibold text-cyan-200">
+                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        Optimal Performance
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            <span className="text-sm font-medium">Instant Access</span>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className="relative py-12 sm:py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="mb-1 text-center uppercase tracking-widest text-xs font-semibold text-cyan-300/80">
+              Features
+            </p>
+            <h2 className="text-center text-2xl sm:text-4xl font-bold text-white leading-tight">
+              Built for <span className="text-cyan-300/90 drop-shadow-[0_0_6px_rgba(34,211,238,.25)]">Modern Facilities</span>
+            </h2>
+            <div className="mt-6 grid md:grid-cols-3 gap-5">
+              <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-7 backdrop-blur transition shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40">
+                <h3 className="text-lg font-semibold text-center flex items-center justify-center gap-2">
+                  <svg className="h-5 w-5 text-cyan-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                  Secure Access Control
+                </h3>
+                <p className="mt-2 text-white/80 text-sm text-center">
+                  Digital locks with real-time access logs. Multi-factor authentication and temporary access codes for enhanced security.
+                </p>
+              </div>
+              <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-7 backdrop-blur transition shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40">
+                <h3 className="text-lg font-semibold text-center flex items-center justify-center gap-2">
+                  <svg className="h-5 w-5 text-fuchsia-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                  Real-time Analytics
+                </h3>
+                <p className="mt-2 text-white/80 text-sm text-center">
+                  Monitor usage patterns, occupancy rates, and facility performance with detailed analytics and reporting.
+                </p>
+              </div>
+              <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-7 backdrop-blur transition shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40">
+                <h3 className="text-lg font-semibold text-center flex items-center justify-center gap-2">
+                  <svg className="h-5 w-5 text-emerald-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  Smart Reservations
+                </h3>
+                <p className="mt-2 text-white/80 text-sm text-center">
+                  Easy booking system with automated reminders, extension options, and flexible scheduling for users.
+                </p>
+              </div>
+            </div>
           </div>
-          
-          <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-            <span className="text-sm font-medium">Real-time Analytics</span>
+        </section>
+
+        {/* CTA Section */}
+        <section className="relative py-12 sm:py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="mb-1 text-center uppercase tracking-widest text-xs font-semibold text-cyan-300/80">
+              Get Started
+            </p>
+            <h2 className="text-center text-2xl sm:text-4xl font-bold text-white leading-tight">
+              Ready to <span className="text-cyan-300/90 drop-shadow-[0_0_6px_rgba(34,211,238,.25)]">transform</span> your storage management?
+            </h2>
+            <div className="mt-6 group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-7 backdrop-blur transition shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <p className="text-white/80 text-center sm:text-left">Start your free trial and experience SmartLockers in action with your facility.</p>
+              <div className="flex gap-3">
+                <button onClick={handleRegister} className="inline-flex items-center gap-2 rounded-xl bg-cyan-400/95 text-black font-semibold px-6 py-3 shadow-[0_8px_24px_rgba(34,211,238,.35)] hover:translate-y-[-1px] hover:shadow-[0_10px_30px_rgba(34,211,238,.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300">
+                  Start Free Trial
+                </button>
+                <button onClick={handleAdminLogin} className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 text-white px-6 py-3 hover:border-purple-300/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-300">
+                  Admin Portal
+                </button>
+              </div>
+            </div>
           </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="mt-16 border-t border-white/10 bg-black/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-500" aria-hidden />
+            <p className="text-white/70 text-sm">© {new Date().getFullYear()} SmartLockers. All rights reserved.</p>
+          </div>
+          <nav className="flex items-center gap-6 text-sm">
+            <a className="text-white/70 hover:text-white" href="#">Terms</a>
+            <a className="text-white/70 hover:text-white" href="#">Privacy</a>
+            <a className="text-white/70 hover:text-white" href="#contact">Contact</a>
+          </nav>
         </div>
-      </div>
+      </footer>
     </div>
   );
 };
