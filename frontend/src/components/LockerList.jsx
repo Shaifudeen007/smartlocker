@@ -136,38 +136,6 @@ const LockerList = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-[#0b102b] via-[#14124d] to-[#1a0b2e] opacity-90" />
       </div>
 
-      {/* Skip link for a11y */}
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-cyan-300 focus:text-black focus:px-3 focus:py-2 focus:rounded">
-        Skip to content
-      </a>
-
-      {/* Sticky Nav */}
-      <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-black/30 bg-black/20 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 shadow-lg shadow-cyan-500/20" aria-hidden />
-            <div className="leading-tight">
-              <p className="text-white font-bold tracking-wide">SmartLockers</p>
-              <p className="text-xs text-white/60">Available Lockers</p>
-            </div>
-          </div>
-          <nav aria-label="Primary" className="hidden md:flex items-center gap-7 text-sm">
-            <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#features">Features</a>
-            <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#security">Security</a>
-            <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#support">Support</a>
-          </nav>
-          <div className="flex items-center gap-3">
-            <button 
-              onClick={fetchLockers}
-              className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 text-white px-4 py-2 hover:border-cyan-300/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 text-sm"
-            >
-              <Icon.Refresh className="w-4 h-4" />
-              Refresh
-            </button>
-          </div>
-        </div>
-      </header>
-
       <main id="main">
         {/* Hero Section */}
         <section aria-labelledby="lockers-heading" className="relative overflow-hidden py-12 sm:py-16">
