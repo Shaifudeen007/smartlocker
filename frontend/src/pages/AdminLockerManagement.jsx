@@ -5,10 +5,13 @@ const AdminLockerManagement = () => {
   const [lockers, setLockers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState(''); // ADD THIS LINE
+  const [successMessage, setSuccessMessage] = useState('');
   const [editingLocker, setEditingLocker] = useState(null);
   const [showAddForm, setShowAddForm] = useState(false);
   const { user } = useAuth();
+
+  // Add API base URL constant
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
   const [newLocker, setNewLocker] = useState({
     locker_number: '',
@@ -30,7 +33,7 @@ const AdminLockerManagement = () => {
   const fetchLockers = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8000/api/admin/lockers/', {
+      const response = await fetch(`${API_BASE_URL}/api/admin/lockers/`, { // UPDATED
         headers: getAuthHeaders()
       });
 
@@ -51,10 +54,10 @@ const AdminLockerManagement = () => {
     fetchLockers();
   }, []);
 
-  // Update locker status - MODIFIED FUNCTION
+  // Update locker status
   const updateLockerStatus = async (lockerId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/admin/lockers/${lockerId}/`, {
+      const response = await fetch(`${API_BASE_URL}/api/admin/lockers/${lockerId}/`, { // UPDATED
         method: 'PUT',
         headers: getAuthHeaders(),
         body: JSON.stringify({ status: newStatus })
@@ -73,7 +76,6 @@ const AdminLockerManagement = () => {
         )
       );
 
-      // ADD SUCCESS MESSAGE
       setSuccessMessage(`Locker ${updatedLocker.locker_number} status updated to ${newStatus}`);
       setTimeout(() => setSuccessMessage(''), 3000);
       
@@ -82,11 +84,11 @@ const AdminLockerManagement = () => {
     }
   };
 
-  // Add new locker - ALSO ADD SUCCESS MESSAGE HERE
+  // Add new locker
   const addLocker = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:8000/api/admin/lockers/', {
+      const response = await fetch(`${API_BASE_URL}/api/admin/lockers/`, { // UPDATED
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({
@@ -112,7 +114,6 @@ const AdminLockerManagement = () => {
         status: 'available'
       });
       
-      // ADD SUCCESS MESSAGE FOR ADDING LOCKER
       setSuccessMessage(`Locker ${addedLocker.locker_number} added successfully!`);
       setTimeout(() => setSuccessMessage(''), 3000);
       setError('');
@@ -121,7 +122,7 @@ const AdminLockerManagement = () => {
     }
   };
 
-  // Delete locker - ALSO ADD SUCCESS MESSAGE HERE
+  // Delete locker
   const deleteLocker = async (lockerId) => {
     if (!window.confirm('Are you sure you want to delete this locker?')) {
       return;
@@ -130,7 +131,7 @@ const AdminLockerManagement = () => {
     try {
       const lockerToDelete = lockers.find(locker => locker.id === lockerId);
       
-      const response = await fetch(`http://localhost:8000/api/admin/lockers/${lockerId}/`, {
+      const response = await fetch(`${API_BASE_URL}/api/admin/lockers/${lockerId}/`, { // UPDATED
         method: 'DELETE',
         headers: getAuthHeaders()
       });
@@ -141,7 +142,6 @@ const AdminLockerManagement = () => {
 
       setLockers(prevLockers => prevLockers.filter(locker => locker.id !== lockerId));
       
-      // ADD SUCCESS MESSAGE FOR DELETION
       setSuccessMessage(`Locker ${lockerToDelete.locker_number} deleted successfully!`);
       setTimeout(() => setSuccessMessage(''), 3000);
     } catch (err) {
@@ -178,7 +178,6 @@ const AdminLockerManagement = () => {
         </button>
       </div>
 
-      {/* ADD SUCCESS MESSAGE DISPLAY HERE */}
       {successMessage && (
         <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
           {successMessage}

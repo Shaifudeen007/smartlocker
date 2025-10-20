@@ -8,11 +8,14 @@ const LockerList = () => {
   const [error, setError] = useState('');
   const { user, getAuthHeaders } = useAuth();
 
+  // Add API base URL constant
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+
   // Fetch available lockers for users
   const fetchLockers = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8000/api/lockers/', {
+      const response = await fetch(`${API_BASE_URL}/api/lockers/`, { // UPDATED
         headers: getAuthHeaders()
       });
 
@@ -45,7 +48,7 @@ const LockerList = () => {
   // Handle locker reservation
   const handleReserveLocker = async (lockerId, duration) => {
     try {
-      const response = await fetch('http://localhost:8000/api/lockers/${lockerId}/reserve/', {
+      const response = await fetch(`${API_BASE_URL}/api/lockers/${lockerId}/reserve/`, { // UPDATED
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify({ duration: duration })
