@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "smartlocker-frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -30,9 +30,8 @@
     "tailwindcss": "^4.1.14",
     "vite": "^7.1.7"
   },
-  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
-  "main": "eslint.config.js",
-  "keywords": [],
+  "description": "SmartLocker - Frontend for locker management system",
+  "keywords": ["react", "vite", "locker", "management"],
   "author": "",
   "license": "ISC"
 }
