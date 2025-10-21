@@ -53,7 +53,7 @@ Built to demonstrate complete **Full Stack Development** using **Django REST Fra
 ### 🧠 Backend Setup (Django)
 
 # Clone repository
-git clone https://github.com/yourusername/smartlocker.git
+git https://github.com/Shaifudeen007/smartlocker
 cd smartlocker/backend
 
 # Create virtual environment
