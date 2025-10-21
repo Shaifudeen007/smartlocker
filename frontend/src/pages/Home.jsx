@@ -39,8 +39,8 @@ const Home = () => {
           </div>
           <nav aria-label="Primary" className="hidden md:flex items-center gap-7 text-sm">
             <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#features">Features</a>
-            <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#security">Security</a>
             <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#pricing">Pricing</a>
+            <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#security">Security</a>
             <a className="text-white/80 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 rounded" href="#contact">Contact</a>
           </nav>
           <div className="flex items-center gap-3">
@@ -217,6 +217,171 @@ const Home = () => {
                   Easy booking system with automated reminders, extension options, and flexible scheduling for users.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Section */}
+        <section id="pricing" className="relative py-12 sm:py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="mb-1 text-center uppercase tracking-widest text-xs font-semibold text-cyan-300/80">
+              Pricing
+            </p>
+            <h2 className="text-center text-2xl sm:text-4xl font-bold text-white leading-tight">
+              Simple, Transparent <span className="text-cyan-300/90 drop-shadow-[0_0_6px_rgba(34,211,238,.25)]">Pricing</span>
+            </h2>
+            <p className="mt-4 text-center text-white/80 max-w-2xl mx-auto">
+              Choose the plan that fits your needs. All plans include core features with no hidden fees.
+            </p>
+            
+            <div className="mt-8 grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {/* Starter Plan */}
+              <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-8 backdrop-blur transition-all shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40 hover:scale-[1.02]">
+                <div className="text-center">
+                  <h3 className="text-xl font-bold text-white">Starter</h3>
+                  <p className="mt-2 text-white/70 text-sm">Perfect for small businesses</p>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-white">$49</span>
+                    <span className="text-white/70">/month</span>
+                  </div>
+                  <button onClick={handleRegister} className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 text-white px-4 py-3 hover:border-cyan-300/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 transition-colors">
+                    Start Free Trial
+                  </button>
+                </div>
+                <ul className="mt-6 space-y-3">
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Up to 50 lockers
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Basic access control
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Real-time monitoring
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Email support
+                  </li>
+                </ul>
+              </div>
+
+              {/* Professional Plan - Featured */}
+              <div className="group rounded-2xl bg-gradient-to-br from-cyan-500/10 to-purple-500/10 border border-cyan-300/30 p-6 sm:p-8 backdrop-blur transition-all shadow-[0_10px_30px_rgba(34,211,238,.2)] hover:shadow-[0_12px_40px_rgba(34,211,238,.3)] hover:scale-[1.02] relative">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-cyan-400/95 text-black font-semibold px-3 py-1 text-xs">
+                    <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    Most Popular
+                  </span>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-xl font-bold text-white">Professional</h3>
+                  <p className="mt-2 text-white/70 text-sm">Ideal for growing facilities</p>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-white">$99</span>
+                    <span className="text-white/70">/month</span>
+                  </div>
+                  <button onClick={handleRegister} className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-400/95 text-black font-semibold px-4 py-3 shadow-[0_8px_24px_rgba(34,211,238,.35)] hover:translate-y-[-1px] hover:shadow-[0_10px_30px_rgba(34,211,238,.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 transition-all">
+                    Start Free Trial
+                  </button>
+                </div>
+                <ul className="mt-6 space-y-3">
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Up to 200 lockers
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Advanced access control
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Real-time analytics
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Multi-factor authentication
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Priority support
+                  </li>
+                </ul>
+              </div>
+
+              {/* Enterprise Plan */}
+              <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-8 backdrop-blur transition-all shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-purple-300/40 hover:scale-[1.02]">
+                <div className="text-center">
+                  <h3 className="text-xl font-bold text-white">Enterprise</h3>
+                  <p className="mt-2 text-white/70 text-sm">For large organizations</p>
+                  <div className="mt-4">
+                    <span className="text-4xl font-bold text-white">Custom</span>
+                  </div>
+                  <button onClick={handleRegister} className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 text-white px-4 py-3 hover:border-purple-300/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-300 transition-colors">
+                    Contact Sales
+                  </button>
+                </div>
+                <ul className="mt-6 space-y-3">
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Unlimited lockers
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Enterprise-grade security
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Custom integrations
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Dedicated account manager
+                  </li>
+                  <li className="flex items-center gap-3 text-sm text-white/80">
+                    <svg className="h-5 w-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    24/7 premium support
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 text-center">
+              <p className="text-white/60 text-sm">
+                All plans include a 14-day free trial. No credit card required.
+              </p>
             </div>
           </div>
         </section>
