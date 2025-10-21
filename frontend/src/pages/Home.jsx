@@ -16,6 +16,12 @@ const Home = () => {
     navigate('/register');
   };
 
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    // Handle contact form submission here
+    alert('Thank you for your message! We will get in touch with you soon.');
+  };
+
   return (
     <div className="min-h-screen font-sans antialiased bg-[#080b1a] text-white selection:bg-cyan-300/30">
       {/* Background gradient + glow */}
@@ -408,20 +414,172 @@ const Home = () => {
             </div>
           </div>
         </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="relative py-12 sm:py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p className="mb-1 text-center uppercase tracking-widest text-xs font-semibold text-cyan-300/80">
+              Contact Us
+            </p>
+            <h2 className="text-center text-2xl sm:text-4xl font-bold text-white leading-tight">
+              Get in <span className="text-cyan-300/90 drop-shadow-[0_0_6px_rgba(34,211,238,.25)]">Touch</span>
+            </h2>
+            
+            <div className="mt-8 grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              {/* Company Information */}
+              <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-8 backdrop-blur transition shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40">
+                <h3 className="text-xl font-bold text-white mb-6">POPKEY PRIVATE LIMITED</h3>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <svg className="h-5 w-5 text-cyan-300 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <div>
+                      <p className="text-white font-medium">Address</p>
+                      <p className="text-white/80 text-sm mt-1">
+                        43, Appadurai 1st St,<br />
+                        Ayanavaram,<br />
+                        Chennai, Tamil Nadu 600023
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <svg className="h-5 w-5 text-cyan-300 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <div>
+                      <p className="text-white font-medium">Phone</p>
+                      <p className="text-white/80 text-sm mt-1">(+91) 7400 500 200</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <svg className="h-5 w-5 text-cyan-300 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    <div>
+                      <p className="text-white font-medium">Email</p>
+                      <p className="text-white/80 text-sm mt-1">contact@popkey.in</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-6 p-4 bg-cyan-400/10 border border-cyan-300/20 rounded-xl">
+                  <p className="text-cyan-200 text-sm text-center">
+                    We will Get in Touch
+                  </p>
+                </div>
+              </div>
+
+              {/* Contact Form */}
+              <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-8 backdrop-blur transition shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40">
+                <h3 className="text-xl font-bold text-white mb-6">Send us a Message</h3>
+                
+                <form onSubmit={handleContactSubmit} className="space-y-4">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      required
+                      placeholder="Enter your email"
+                      className="w-full rounded-xl bg-white/10 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-colors"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-white/80 mb-2">
+                      Phone *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      required
+                      placeholder="Enter your phone number"
+                      className="w-full rounded-xl bg-white/10 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-colors"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
+                      Message (Optional)
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      placeholder="Tell us about your requirements..."
+                      className="w-full rounded-xl bg-white/10 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-transparent transition-colors resize-none"
+                    />
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-cyan-400/95 text-black font-semibold px-6 py-3 shadow-[0_8px_24px_rgba(34,211,238,.35)] hover:translate-y-[-1px] hover:shadow-[0_10px_30px_rgba(34,211,238,.45)] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300 transition-all"
+                  >
+                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       {/* Footer */}
       <footer className="mt-16 border-t border-white/10 bg-black/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-500" aria-hidden />
-            <p className="text-white/70 text-sm">© {new Date().getFullYear()} SmartLockers. All rights reserved.</p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-8">
+            <div className="flex items-center gap-3">
+              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-500" aria-hidden />
+              <div>
+                <p className="text-white font-bold">SmartLockers</p>
+                <p className="text-white/70 text-sm">by POPKEY PRIVATE LIMITED</p>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div>
+                <h4 className="text-white font-semibold mb-4">Contact Info</h4>
+                <div className="space-y-2 text-sm text-white/70">
+                  <p>43, Appadurai 1st St</p>
+                  <p>Ayanavaram, Chennai</p>
+                  <p>Tamil Nadu 600023</p>
+                  <p>Phone: (+91) 7400 500 200</p>
+                  <p>Email: contact@popkey.in</p>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+                <nav className="flex flex-col space-y-2 text-sm">
+                  <a className="text-white/70 hover:text-white transition-colors" href="#features">Features</a>
+                  <a className="text-white/70 hover:text-white transition-colors" href="#pricing">Pricing</a>
+                  <a className="text-white/70 hover:text-white transition-colors" href="#contact">Contact</a>
+                  <a className="text-white/70 hover:text-white transition-colors" href="#">Privacy Policy</a>
+                  <a className="text-white/70 hover:text-white transition-colors" href="#">Terms of Service</a>
+                </nav>
+              </div>
+            </div>
           </div>
-          <nav className="flex items-center gap-6 text-sm">
-            <a className="text-white/70 hover:text-white" href="#">Terms</a>
-            <a className="text-white/70 hover:text-white" href="#">Privacy</a>
-            <a className="text-white/70 hover:text-white" href="#contact">Contact</a>
-          </nav>
+          
+          <div className="mt-8 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-white/70 text-sm">
+              © {new Date().getFullYear()} POPKEY PRIVATE LIMITED. All rights reserved.
+            </p>
+            <div className="flex items-center gap-6 text-sm">
+              <a className="text-white/70 hover:text-white transition-colors" href="#">Privacy</a>
+              <a className="text-white/70 hover:text-white transition-colors" href="#">Terms</a>
+              <a className="text-white/70 hover:text-white transition-colors" href="#contact">Contact</a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
