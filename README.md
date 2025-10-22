@@ -1,3 +1,6 @@
+### Live : https://ssmartlocker.netlify.app/
+### Backend : https://smartlocker-6tj0.onrender.com/
+
 # 🔒 Smart Storage Locker Management System
 
 A **Full-Stack Web Application** that allows users to register, log in, and manage smart storage lockers efficiently.  
