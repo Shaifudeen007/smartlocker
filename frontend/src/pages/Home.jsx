@@ -428,7 +428,7 @@ const Home = () => {
             <div className="mt-8 grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {/* Company Information */}
               <div className="group rounded-2xl bg-white/5 border border-white/10 p-6 sm:p-8 backdrop-blur transition shadow-[0_10px_30px_rgba(0,0,0,.25)] hover:shadow-[0_12px_40px_rgba(0,0,0,.35)] hover:border-cyan-300/40">
-                <h3 className="text-xl font-bold text-white mb-6">POPKEY PRIVATE LIMITED</h3>
+                <h3 className="text-xl font-bold text-white mb-6">SmartLockers</h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
@@ -439,9 +439,8 @@ const Home = () => {
                     <div>
                       <p className="text-white font-medium">Address</p>
                       <p className="text-white/80 text-sm mt-1">
-                        43, Appadurai 1st St,<br />
-                        Ayanavaram,<br />
-                        Chennai, Tamil Nadu 600023
+                        Sri Krishna Nagar,<br />
+                        Needamangalam
                       </p>
                     </div>
                   </div>
@@ -452,7 +451,7 @@ const Home = () => {
                     </svg>
                     <div>
                       <p className="text-white font-medium">Phone</p>
-                      <p className="text-white/80 text-sm mt-1">(+91) 7400 500 200</p>
+                      <p className="text-white/80 text-sm mt-1">6381615212</p>
                     </div>
                   </div>
                   
@@ -462,7 +461,7 @@ const Home = () => {
                     </svg>
                     <div>
                       <p className="text-white font-medium">Email</p>
-                      <p className="text-white/80 text-sm mt-1">contact@popkey.in</p>
+                      <p className="text-white/80 text-sm mt-1">shaifshaif144@gmail.com</p>
                     </div>
                   </div>
                 </div>
@@ -541,7 +540,7 @@ const Home = () => {
               <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-cyan-400 to-purple-500" aria-hidden />
               <div>
                 <p className="text-white font-bold">SmartLockers</p>
-                <p className="text-white/70 text-sm">by POPKEY PRIVATE LIMITED</p>
+                <p className="text-white/70 text-sm">Secure Storage Solutions</p>
               </div>
             </div>
             
@@ -549,11 +548,10 @@ const Home = () => {
               <div>
                 <h4 className="text-white font-semibold mb-4">Contact Info</h4>
                 <div className="space-y-2 text-sm text-white/70">
-                  <p>43, Appadurai 1st St</p>
-                  <p>Ayanavaram, Chennai</p>
-                  <p>Tamil Nadu 600023</p>
-                  <p>Phone: (+91) 7400 500 200</p>
-                  <p>Email: contact@popkey.in</p>
+                  <p>Sri Krishna Nagar</p>
+                  <p>Needamangalam</p>
+                  <p>Phone: 6381615212</p>
+                  <p>Email: shaifshaif144@gmail.com</p>
                 </div>
               </div>
               
@@ -572,7 +570,7 @@ const Home = () => {
           
           <div className="mt-8 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-white/70 text-sm">
-              © {new Date().getFullYear()} POPKEY PRIVATE LIMITED. All rights reserved.
+              © {new Date().getFullYear()} SmartLockers. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm">
               <a className="text-white/70 hover:text-white transition-colors" href="#">Privacy</a>
